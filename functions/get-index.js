@@ -38,6 +38,10 @@ async function getRestaurants() {
     let cred = await awscred.loadAsync();
     process.env.AWS_ACCESS_KEY_ID = cred.credentials.accessKeyId;
     process.env.AWS_SECRET_ACCESS_KEY = cred.credentials.secretAccessKey;
+
+    if (cred.sessionToken) {
+      process.env.AWS_SESSION_TOKEN = cred.sessionToken;
+    }
   }
 
   aws4.sign(opts);

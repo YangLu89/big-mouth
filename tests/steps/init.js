@@ -20,6 +20,10 @@ exports.init = async function () {
   process.env.AWS_ACCESS_KEY_ID = cred.credentials.accessKeyId;
   process.env.AWS_SECRET_ACCESS_KEY = cred.credentials.secretAccessKey;
 
+  if (cred.sessionToken) {
+    process.env.AWS_SESSION_TOKEN = cred.sessionToken;
+  }
+
   console.log('AWD credentials loaded');
 
   initialized = true;
