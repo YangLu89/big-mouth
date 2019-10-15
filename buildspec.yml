@@ -2,7 +2,8 @@ version: 0.2
 
 phases:
   build:
-    - chmod +x build.sh
-    - ./build.sh init-test
-    - ./build.sh deploy dev
-    - ./build.sh acceptance-test
+    commands:
+      - chmod +x build.sh
+      - ./build.sh init-test
+      - ./build.sh deploy dev
+      - ./build.sh acceptance-test
